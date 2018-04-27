@@ -11,6 +11,9 @@
                     </div>
                     <div class="screen" v-html="outPut"></div>
                 </section>
+                <div class="page_show" @click="handleShow">
+                    <img class="icon_show" src="../../../assets/img/PPT.svg">
+                </div>
             </div>
             <div class="right">
                 <el-carousel indicator-position="outside" height="600px" :autoplay="false" arrow="always">
@@ -19,12 +22,10 @@
                         <div v-html="item"></div>
                     </el-carousel-item>
                 </el-carousel>
+                <img class="icon_back" src="../../../assets/img/back.svg" @click="handleShow">
             </div>
+        </div>
 
-        </div>
-        <div class="page_show" @click="handleShow">
-            <img class="page_title" src="../../../assets/img/PPT.svg">
-        </div>
     </div>
 
 </template>
@@ -91,6 +92,7 @@ export default {
         height: 100%;
         vertical-align: top;
         padding: 36px;
+        position: relative;
         .el-carousel {
         }
         .el-carousel__item {
@@ -113,6 +115,14 @@ export default {
         // .el-carousel__item:nth-child(2n + 1) {
         //     background-color: #d3dce6;
         // }
+        .icon_back {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
     }
     .page_title {
         text-align: center;
@@ -170,7 +180,7 @@ export default {
     }
 }
 .page_show {
-    position: fixed;
+    position: absolute;
     right: 26px;
     top: 26px;
     width: 48px;
@@ -184,6 +194,7 @@ export default {
     text-align: center;
     line-height: 48px;
     padding-top: 10px;
+    cursor: pointer;
     img {
         width: 28px;
         height: 28px;
